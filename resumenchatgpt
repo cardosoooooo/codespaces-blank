@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resúmenes de Física</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #resumen-container {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="resumen-container">
+        <h2>Haz clic para ver un resumen de Física</h2>
+        <p id="resumen-texto">Haz clic con el botón izquierdo para comenzar.</p>
+    </div>
+
+    <script>
+        const temas = [
+            {
+                titulo: "Movimiento Rectilíneo Uniforme (MRU)",
+                resumen: "El MRU es un movimiento en línea recta con velocidad constante. En este caso, la aceleración es nula y la distancia recorrida es proporcional al tiempo."
+            },
+            {
+                titulo: "Movimiento Rectilíneo Uniformemente Variado (MRUV)",
+                resumen: "El MRUV se caracteriza por tener una aceleración constante. En este tipo de movimiento, la velocidad varía de manera uniforme y se pueden calcular distancias y tiempos utilizando fórmulas específicas."
+            },
+            {
+                titulo: "Movimiento Circular Uniforme (MCU)",
+                resumen: "En el MCU, un objeto se mueve en una trayectoria circular a velocidad constante. Aunque la rapidez es constante, la dirección de la velocidad cambia continuamente, lo que implica una aceleración centrípeta."
+            },
+            {
+                titulo: "Tiro Oblicuo y Horizontal",
+                resumen: "El tiro oblicuo combina un movimiento horizontal uniforme con un movimiento vertical uniformemente acelerado. El tiro horizontal es un caso especial donde el ángulo de lanzamiento es 0°, y el objeto sigue una trayectoria parabólica debido a la gravedad."
+            },
+            {
+                titulo: "Fuerzas en un Plano Inclinado",
+                resumen: "En un plano inclinado, las fuerzas se descomponen en componentes paralelas y perpendiculares al plano. La fuerza paralela es la que hace que el objeto deslice, mientras que la perpendicular es contrarrestada por la normal."
+            },
+            {
+                titulo: "Circuitos Eléctricos con una Fuente",
+                resumen: "Un circuito con una fuente tiene componentes como resistencias y una fuente de energía (como una batería). Las leyes de Kirchhoff y la Ley de Ohm son claves para analizar el comportamiento del circuito."
+            },
+            {
+                titulo: "Circuitos Eléctricos con Múltiples Fuentes",
+                resumen: "Los circuitos con más de una fuente requieren un análisis más complejo, usando las leyes de Kirchhoff para determinar las corrientes y voltajes en cada rama del circuito."
+            },
+            {
+                titulo: "Óptica",
+                resumen: "La óptica estudia la luz y sus fenómenos como la reflexión, la refracción y la difracción. También analiza cómo se forman imágenes en lentes y espejos, fundamentales en dispositivos ópticos."
+            }
+        ];
+
+        let indiceTema = 0;
+
+        document.body.addEventListener("click", function() {
+            const resumenTexto = document.getElementById("resumen-texto");
+            const resumenContainer = document.getElementById("resumen-container");
+
+            resumenContainer.querySelector("h2").textContent = temas[indiceTema].titulo;
+            resumenTexto.textContent = temas[indiceTema].resumen;
+
+            indiceTema = (indiceTema + 1) % temas.length;
+        });
+    </script>
+</body>
+</html>
